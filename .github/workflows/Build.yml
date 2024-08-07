@@ -10,8 +10,7 @@ jobs:
       runs-on: ${{ matrix.os }}
       strategy:
         matrix:
-          node-version: [latest]
-          os: [ubuntu]
+          os: [ubuntu-latest]
           
       steps:
         - name: Checking out the code
