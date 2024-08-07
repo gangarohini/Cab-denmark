@@ -7,7 +7,12 @@ on:
 jobs:
     build:
       name: Build a Java application with Maven
-      runs-on: ubuntu-latest
+      runs-on: ${{ matrix.os }}
+      strategy:
+        matrix:
+          node-version: [8.x, 10.x, 12.x]
+          os: [ubuntu-18.04]
+          
       steps:
         - name: Checking out the code
           uses: actions/checkout@v4
@@ -19,11 +24,11 @@ jobs:
             java-version: '17' 
             cache : maven
 
+        - name: Unit Tests
+          run: mvn -B test --file pom.xml
+
         - name: Build with Maven
           run: mvn -B package --file pom.xml
-          
-        - name: Unit Test using Maven
-          run: mvn -B test --file pom.xml
 
         - name: Print if Build is a success
           run: echo "Build succeded"
