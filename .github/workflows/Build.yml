@@ -1,4 +1,4 @@
-name: Build Simple Java App with Maven
+name: Build
 
 on:
   push: 
