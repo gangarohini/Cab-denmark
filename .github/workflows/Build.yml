@@ -52,4 +52,4 @@ jobs:
             context: .
             dockerfile: Dockerfile
             push: true
-            tags: ${{ secrets.DOCKER_HUB_USERNAME }}/Cab-denmark:latest
+            tags: ${{ secrets.DOCKER_HUB_USERNAME }}/cab-denmark:latest
